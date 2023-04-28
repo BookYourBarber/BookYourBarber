@@ -1,6 +1,7 @@
 version: '3'
 services:
   client_information:
+    container_name: customer_frontend_home
     build: ./customer_frontend
     volumes:
       - ./customer_frontend:/usr/src/app
@@ -9,3 +10,21 @@ services:
     restart: always
     # environment:
     #   CONN_URL: ""
+
+  appointments:
+    container_name: appointments_api
+    build: ./appointments
+    volumes:
+      - ./appointments:/usr/src/app
+    ports:
+      - "5000:5000"
+    restart: always
+
+  users:
+    container_name: users_api
+    build: ./users
+    volumes:
+      - ./users:/usr/src/app
+    ports:
+      - "5001:5001"
+    restart: always
