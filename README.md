@@ -1,5 +1,5 @@
 # s3_db02_individual_project
-Individual project for semester 3
+Main repository
 
 # Problem
 The problem I have been facing for so long and a problem that's quite annoying is making an appointment for a haircut. 
