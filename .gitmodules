@@ -1,3 +1,6 @@
 [submodule "customer_frontend"]
 	path = customer_frontend
 	url = https://github.com/BookYourBarber/bub_customer_frontend
+[submodule "users"]
+	path = users
+	url = https://github.com/BookYourBarber/bub_user_api
