@@ -7,3 +7,9 @@
 [submodule "appointments"]
 	path = appointments
 	url = https://github.com/BookYourBarber/bub_appointment_api
+[submodule "schedule"]
+	path = schedule
+	url = https://github.com/BookYourBarber/bub_schedule_api
+[submodule "time_slots"]
+	path = time_slots
+	url = https://github.com/BookYourBarber/bub_timeslot_api
