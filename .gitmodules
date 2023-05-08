@@ -4,3 +4,6 @@
 [submodule "users"]
 	path = users
 	url = https://github.com/BookYourBarber/bub_user_api
+[submodule "appointments"]
+	path = appointments
+	url = https://github.com/BookYourBarber/bub_appointment_api
