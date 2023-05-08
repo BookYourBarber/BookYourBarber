@@ -1,6 +1,6 @@
-[submodule "users"]
-    path = https://github.com/BookYourBarber/BookYourBarber/tree/main/users
-    url = https://github.com/BookYourBarber/bub_user_api.git
+# [submodule "users"]
+#     path = https://github.com/BookYourBarber/BookYourBarber/tree/main/users
+#     url = https://github.com/BookYourBarber/bub_user_api.git
 [submodule "bub_user_api"]
 	path = bub_user_api
 	url = https://github.com/BookYourBarber/bub_user_api.git
