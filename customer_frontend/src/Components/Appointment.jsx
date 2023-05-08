@@ -1,21 +1,36 @@
-import React, { Component } from 'react';
+import { faChampagneGlasses } from '@fortawesome/free-solid-svg-icons';
+import React, { Component,useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { createBrowserRouter, RouterProvider, Route, Link} from "react-router-dom";
 
-function BasicExample() {
+
+function Appointment() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const response = await fetch('http://localhost:5001/users');
+      const data = await response.json();
+      setUsers(data);
+    }
+    fetchUsers();
+  }, []);
+
   return (
     <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
+        Choose barber
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Link to="/userinformation"><Dropdown.Item href="#/action-1">Barber 1</Dropdown.Item></Link>
-        <Link to="/userinformation"><Dropdown.Item href="#/action-2">Barber 2</Dropdown.Item></Link>
-        <Link to="/userinformation"><Dropdown.Item href="#/action-3">Barber 3</Dropdown.Item></Link>
+        {users.map((user) => (
+          <Link to={`/userinformation/${user.Id}`}>
+          <Dropdown.Item>{user.Name}</Dropdown.Item>
+        </Link>
+        ))}
       </Dropdown.Menu>
     </Dropdown>
   );
 }
 
-export default BasicExample;
+export default Appointment;

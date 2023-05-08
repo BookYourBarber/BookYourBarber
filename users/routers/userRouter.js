@@ -3,6 +3,7 @@ const router = require("express").Router()
 router.get("/", async (req,res) =>{
     
     const users = [{
+        Id: "1",
         Name: "Veljko",
         LastName: "Skrbic",
         PhoneNr: "0623687594",
@@ -10,6 +11,7 @@ router.get("/", async (req,res) =>{
         Role: "Customer"
     },
     {
+        Id: "2",
         Name: "Vuk",
         LastName: "Skrbic",
         PhoneNr: "132156449874",
@@ -17,6 +19,7 @@ router.get("/", async (req,res) =>{
         Role: "Barber"
     },
     {
+        Id: "3",
         Name: "Una",
         LastName: "Skrbic",
         PhoneNr: "966232365",

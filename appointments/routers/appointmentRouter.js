@@ -12,4 +12,5 @@ router.get("/", async (req,res) =>{
     return res.json(appointment)
 })
 
+
 module.exports = router
