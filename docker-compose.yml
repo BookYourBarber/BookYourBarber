@@ -11,15 +11,6 @@ services:
     # environment:
     #   CONN_URL: ""
 
-  appointments:
-    container_name: appointments_api
-    build: ./appointments
-    volumes:
-      - ./appointments:/usr/src/app
-    ports:
-      - "5000:5000"
-    restart: always
-
   users:
     container_name: users_api
     build: ./users
@@ -27,4 +18,31 @@ services:
       - ./users:/usr/src/app
     ports:
       - "5001:5001"
+    restart: always
+
+  schedule:
+    container_name: schedule_api
+    build: ./schedule
+    volumes:
+      - ./schedule:/usr/src/app
+    ports:
+      - "5002:5002"
+    restart: always
+
+  appointments:
+    container_name: appointments_api
+    build: ./appointments
+    volumes:
+      - ./appointments:/usr/src/app
+    ports:
+      - "5003:5003"
+    restart: always
+
+  timeslots:
+    container_name: time_slots_api
+    build: ./time_slots
+    volumes:
+      - ./time_slots:/usr/src/app
+    ports:
+      - "5004:5004"
     restart: always
