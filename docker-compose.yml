@@ -28,6 +28,8 @@ services:
     ports:
       - "5002:5002"
     restart: always
+    depends_on:
+      - schedule_db
 
   appointments:
     container_name: appointments_api
@@ -37,6 +39,10 @@ services:
     ports:
       - "5003:5003"
     restart: always
+    depends_on:
+      - appointments_db
+    # environment:
+    #   DB_URL: "mysql://root:bub@appointments_db:3306/appointments"
 
   timeslots:
     container_name: time_slots_api
@@ -46,3 +52,41 @@ services:
     ports:
       - "5004:5004"
     restart: always
+    depends_on:
+      - timeslots_db
+
+  appointments_db:
+    container_name: appointments_db
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/appointments:/var/lib/mysql
+    environment:
+      # MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: bub
+      MYSQL_DATABASE: appointments
+    command: --pid-file=/var/lib/mysql/mysql.pid
+
+  schedule_db:
+    container_name: schedule_db
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/schedule:/var/lib/mysql
+    environment:
+      # MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: bub
+      MYSQL_DATABASE: schedule
+    command: --pid-file=/var/lib/mysql/mysql.pid
+
+  timeslots_db:
+    container_name: timeslots_db
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/timeslots:/var/lib/mysql
+    environment:
+      # MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: bub
+      MYSQL_DATABASE: timeslots
+    command: --pid-file=/var/lib/mysql/mysql.pid
